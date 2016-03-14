@@ -1,0 +1,57 @@
+  <div class="music">
+    
+    <h3>
+    <a href="/music/<%= music.id %>"><%= music.song_title %> </a>
+    </h3>
+    
+    <small>
+      (by: <%= music.author %>)
+    </small>
+    
+    <p>
+      <a href="<%= music.url %>"><%= music.url %></a>
+    </p>
+    
+    <p>Posted by: <%= music.music_user %> </p>
+    
+    <p> <%= erb(:'music/likes', {locals: {music: music}}) %></p>
+    
+    <div class="comment-count"><%= music.comment_count %></div>
+
+    <% if current_user && allow_comments %>
+      <% if comment = current_user.comments.find_by({music_id: music.id}) %>
+
+        <ul class="comments">
+          <% music.comments.each do |comment| %>
+            <li>
+              <p>
+                <%= comment.user.name %>: <%= comment.text %>
+                <% if comment.user.name == current_user.name%>
+                  <%= erb(:'music/delete_comment', {locals: {music: music, comment: comment}}) %>
+                <% end %>
+              </p>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <%= erb(:"music/new_comment", { locals: {music: music}}) %>
+        <ul class="comments">
+          <% music.comments.each do |comment| %>
+            <li>
+              <p>
+                <%= comment.user.name %>: <%= comment.text %>
+              </p>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+

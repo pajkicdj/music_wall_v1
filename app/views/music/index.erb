@@ -1,10 +1,30 @@
 <% @musics.each do |music| %>
-  <div class="music">
-    <h3><a href="/music/<%= music.id %>"><%= music.song_title %> <small>(by: <%= music.author %>)</small></h3>
-    <p>
-      <%= music.url %>
-    </p>
-  </div>
+  <%= erb(:'music/music', {locals: {music: music, allow_comments: false}}) %>
 <% end %>
 
-<a href="/">Back to Home</a>
+<!-- FOR MIDTERM
+
+<div class="column">
+  <h5>Comedy</h5>
+  <h5><a href="/moods/<%= mood.id %>"><%= mood.title %></a></h5>
+    <img class="thumbnail" src="http://placehold.it/300x400">
+  </a>
+</div>
+<div class="column">
+  <h5>Educational</h5>
+  <h5><a href="/moods/<%= mood.id %>"><%= mood.title %></a></h5>
+    <img class="thumbnail" src="http://placehold.it/300x400">
+  </a>
+</div>
+<div class="column">
+  <h5>Drama</h5>
+  <h5><a href="/moods/<%= mood.id %>"><%= mood.title %></a></h5>
+    <img class="thumbnail" src="http://placehold.it/300x400">
+  </a>
+</div>
+<div class="column">
+  <h5>Pop Culture</h5>
+  <h5><a href="/moods/<%= mood.id %>"><%= mood.title %></a></h5>
+    <img class="thumbnail" src="http://placehold.it/300x400">
+  </a>
+</div> -->

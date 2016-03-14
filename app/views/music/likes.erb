@@ -1,0 +1,19 @@
+<% if current_user %>
+    <% if like = current_user.likes.find_by({ music_id: music.id}) %>
+        <form action="/likes/<%= like.id %>" method="POST">
+            <input name="_method" type="hidden" value="delete">
+            <button class="button user-like" type="submit">
+                <%= music.like_count %>
+            </button>
+        </form>
+    <% else %>
+        <form action="/likes" method="POST">
+            <input type="hidden" name="music_id" value="<%= music.id %>">
+            <button class="button" type="submit">
+                <%= music.like_count %>
+            </button>
+        </form>
+    <% end %>
+<% else %>
+    <%= music.like_count %>
+<% end %>

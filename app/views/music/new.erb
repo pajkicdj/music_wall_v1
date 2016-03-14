@@ -1,37 +1,45 @@
-<h1>Post a Song in the Music List</h1>
+<div class="jumbotron">
+  <h1 class="addsong">Add Your Song</h1>
+  <p class="lead">
+    <% if @music.errors.any? %>
+      <div>
+        <p class="lead">
+          There are some issues with your song details, please correct them and try again
+          <ul class= "errors">
+            <% @music.errors.full_messages.each do |message| %>
+              <li class="lead"><small><%= message %></small></li>
+            <% end %>
+          </ul>
+        </p> 
+      </div>
+    <% end %>
 
-<% if @music.errors.any? %>
-  <div>
-    <strong>There are some issues with your song details, please correct them and try again</strong>
-    <ul>
-      <% @music.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul> 
-  </div>
-<% end %>
+    <form method="post", action="/music">
+
+      <div class="form_group">
+        <label>Song Title:</label>
+        <input type="text" name="song_title" value="<%= @music.song_title %>"> 
+      </div>
+
+      <div class="form_group">
+        <label>Author:</label>
+        <input type="text" name="author" value="<%= @music.author %>"> 
+      </div>
+
+      <div class="form_group">
+        <label>Url:</label>
+        <input type="text" name="url" value="<%= @music.url %>">
+      </div>
+
+      <div class="form_group">
+        <input type="submit" value="submit">
+      </div>
+      
+    </form>
+  </p>
+</div>
 
 
 
-<form method="post", action="/music">
 
-  <div>
-    <label>Song Title:</label>
-    <input type="text" name="song_title" value="<%= @music.song_title %>"> 
-  </div>
 
-  <div>
-    <label>Author:</label>
-    <input type="text" name="author" value="<%= @music.author %>"> 
-  </div>
-
-  <div>
-    <label>Url:</label>
-    <input type="text" name="url" value="<%= @music.url %>">
-  </div>
-
-  <div>
-    <input type="submit" value="Submit">
-  </div>
-  
-</form>

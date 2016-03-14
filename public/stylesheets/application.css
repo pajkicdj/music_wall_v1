@@ -1,0 +1,57 @@
+h3.text-muted {
+  padding-top: 8px;
+  height: 50px;
+}
+
+.jumbotron {
+  text-align: center;
+  height: 425px;
+}
+
+.jumbotron.addsong {
+  margin-bottom: 30px;
+}
+
+div.header.clearfix {
+  margin-bottom: 30px;
+}
+
+div.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+
+ul.errors li {
+  width: 170px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 0px;
+}
+
+.form_group label {
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 50%;
+  text-align: right;
+}
+
+.form_group input {
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
+}
+
+
+div.music {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+
+
+
+
+
+
